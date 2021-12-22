@@ -34,7 +34,7 @@ app = FastAPI(
       <a href='https://github.com/se4ai2122-cs-uniba/AgeGuesser'>Github</a>",
     version="0.22",
 )
-
+# dummy edit
 origins = ["http://localhost:5000","http://localhost","https://ageguesser.com", ]
 
 app.add_middleware(
