@@ -32,7 +32,7 @@ app = FastAPI(
     title="AgeGuesser API",
     description="Deep learning based age estimation system.<br>\
       <a href='https://github.com/se4ai2122-cs-uniba/AgeGuesser'>Github</a>",
-    version="0.1",
+    version="0.2",
 )
 
 origins = ["http://localhost:5000","http://localhost","https://ageguesser.com", ]
