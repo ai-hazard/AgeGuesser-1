@@ -5,7 +5,7 @@ on:
       - 'master'
 jobs:
   update_models:
-    if: startsWith(github.event.head_commit.message, 'NEW MODELS -')
+    if: startsWith(github.event.head_commit.message, 'NEW MODELS')
     name: Update models
     runs-on: ubuntu-latest
     steps:
