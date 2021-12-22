@@ -1,0 +1,25 @@
+name: Update models
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  update_models:
+    if: startsWith(github.event.head_commit.message, 'NEW MODELS -')
+    name: Update models
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download new models
+        uses: actions/checkout@v1
+        - run: |
+          wget ${{ secrets.MODELS_URL }}
+          echo "New models downloaded."
+      - name: copy models [eu-central-1]
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_EU_CENTRAL_1 }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.PK_EU_CENTRAL_1 }}
+          source: "release_models.zip"
+          target: "~/"
+      

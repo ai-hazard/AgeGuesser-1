@@ -5,6 +5,7 @@ on:
       - 'master'
 jobs:
   login_build_push_deploy:
+    if: startsWith(github.event.head_commit.message, 'DEPLOY -')
     name: Build & Deploy Update
     runs-on: ubuntu-latest
     steps:
