@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Download new models
         uses: actions/checkout@v1
-        - run: |
+        run: |
           wget ${{ secrets.MODELS_URL }}
           echo "New models downloaded."
       - name: copy models [eu-central-1]
