@@ -9,8 +9,9 @@ jobs:
     name: Update models
     runs-on: ubuntu-latest
     steps:
-      - name: Download new models
+      - name: Download
         uses: actions/checkout@v1
+      - name: Get new models
         run: |
           wget ${{ secrets.MODELS_URL }}
           echo "New models downloaded."
