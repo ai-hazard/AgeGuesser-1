@@ -1,4 +1,4 @@
-# AgeGusser
+# AgeGuesser
 
 ![Deployment](https://github.com/ai-hazard/AgeGuesser-1/actions/workflows/build_and_deploy.yaml/badge.svg)
 ![Testing](https://github.com/ai-hazard/AgeGuesser-1/actions/workflows/testing.yaml/badge.svg)
