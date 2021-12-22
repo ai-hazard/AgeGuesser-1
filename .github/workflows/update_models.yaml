@@ -15,6 +15,7 @@ jobs:
         run: |
           wget ${{ secrets.MODELS_URL }}
           echo "New models downloaded."
+      
       - name: copy models [eu-central-1]
         uses: appleboy/scp-action@master
         with:
@@ -23,4 +24,49 @@ jobs:
           key: ${{ secrets.PK_EU_CENTRAL_1 }}
           source: "release_models.zip"
           target: "~/"
+      - name: extract models [eu-central-1]
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd ~/
+            unzip -o release_models.zip
+          host: ${{ secrets.HOST_EU_CENTRAL_1 }}
+          user: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.PK_EU_CENTRAL_1}}
+
+      - name: copy models [eu-south-1]
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_EU_SOUTH_1 }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.PK_EU_SOUTH_1 }}
+          source: "release_models.zip"
+          target: "~/"
+      - name: extract models [eu-south-1]
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd ~/
+            unzip -o release_models.zip
+          host: ${{ secrets.HOST_EU_SOUTH_1 }}
+          user: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.PK_EU_SOUTH_1}}
+
+      - name: copy models [us-east-1]
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_US_EAST_1 }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.PK_US_EAST_1 }}
+          source: "release_models.zip"
+          target: "~/"
+      - name: extract models [us-east-1]
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd ~/
+            unzip -o release_models.zip
+          host: ${{ secrets.HOST_US_EAST_1 }}
+          user: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.PK_US_EAST_1}}
       
