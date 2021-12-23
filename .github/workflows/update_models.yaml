@@ -1,4 +1,4 @@
-name: Update models
+name: Up-to-date models
 on:
   push:
     branches:
